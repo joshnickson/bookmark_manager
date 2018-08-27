@@ -5,11 +5,6 @@ class BookmarkManager < Sinatra::Base
 
   get '/' do
     @bookmarks = Bookmark.all
-    # @bookmarks = [
-    #           'https://makersstudents.slack.com',
-    #           'https://www.bbc.co.uk/sport/football',
-    #           'https://makersstudents.slack.com',
-    #           ]
     erb :index
   end
 
