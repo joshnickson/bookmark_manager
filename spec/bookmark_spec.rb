@@ -2,9 +2,12 @@ describe '.all' do
   it 'returns a list of bookmarks' do 
     connection = PG.connect(dbname: 'bookmark_manager_test')
 
-    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://makersacademy.com');")
-    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://destroyallsoftware.com');")
-    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://google.com');")
+    # connection.exec("INSERT INTO bookmarks (url) VALUES ('http://makersacademy.com');")
+    # connection.exec("INSERT INTO bookmarks (url) VALUES ('http://destroyallsoftware.com');")
+    # connection.exec("INSERT INTO bookmarks (url) VALUES ('http://google.com');")
+    Bookmark.create('http://makersacademy.com')
+    Bookmark.create('http://destroyallsoftware.com')
+    Bookmark.create('http://google.com')
 
     bookmarks = Bookmark.all
     expect(bookmarks).to include 'http://makersacademy.com' 
