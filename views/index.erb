@@ -1,6 +1,10 @@
 <ul>
-  <% @bookmarks.each do |bookmark| %>
-    <li><%= bookmark %></li>
+  <% @bookmarks.each_with_index do |bookmark, index| %>
+    <li>
+      <a href = "<%=@bookmarks[index][0]%>" >
+        <%=@bookmarks[index][1]%> 
+      </a>   
+    </li>
   <% end %>
   <a href='/bookmarks/new'><button>Add</button></a>
 </ul>

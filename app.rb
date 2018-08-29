@@ -23,7 +23,8 @@ class BookmarkManager < Sinatra::Base
 
   post '/bookmarks' do
     bookmark = params[:new_bookmark_name]
-    flash[:notice] = "URL not recognised" unless Bookmark.create(bookmark)
+    title = params[:new_bookmark_title]
+    flash[:notice] = "URL not recognised" unless Bookmark.create(bookmark, title)
     redirect '/bookmarks'
   end
   
