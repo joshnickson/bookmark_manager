@@ -12,3 +12,16 @@ describe '.all' do
     expect(bookmarks).to include 'http://destroyallsoftware.com' 
   end
 end
+
+describe '.create' do 
+  it 'adds an item to the database' do 
+    connection = PG.connect(dbname: 'bookmark_manager_test')
+    
+    Bookmark.create('http://eastend-butchers.com')
+    expect(Bookmark.all).to include 'http://eastend-butchers.com'
+  end
+end
+
+
+  
+    
