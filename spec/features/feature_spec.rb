@@ -15,8 +15,8 @@ end
 feature 'Check user input' do
   scenario 'User enters an incorrect url and sees error' do
     visit('/bookmarks/new')
-    fill_in :new_bookmark_name, with: "amazonisgreat"
-    fill_in :new_bookmark_title, with: "amazonisgreatagain"
+    fill_in :url, with: "amazonisgreat"
+    fill_in :title, with: "amazonisgreatagain"
     click_button 'Add'
     expect(page).to have_content 'URL not recognised'
   end
@@ -25,8 +25,8 @@ end
 feature 'Create bookmark' do
   scenario 'User creates bookmark entering url and title' do
     visit('/bookmarks/new')
-    fill_in :new_bookmark_name, with: "http://makersacademy.com"
-    fill_in :new_bookmark_title, with: "Makers"
+    fill_in :url, with: "http://makersacademy.com"
+    fill_in :title, with: "Makers"
     click_button 'Add'
     expect(page).to have_link('Makers', href: "http://makersacademy.com")
   end
