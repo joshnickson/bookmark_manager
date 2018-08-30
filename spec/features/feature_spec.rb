@@ -1,9 +1,9 @@
 feature 'View bookmarks' do
   scenario 'User can see all the bookmarks' do
 
-    Bookmark.create('http://makersacademy.com','http://makersacademy.com')
-    Bookmark.create('http://destroyallsoftware.com','http://destroyallsoftware.com')
-    Bookmark.create('http://google.com','http://google.com')
+    Bookmark.create(url: 'http://makersacademy.com',title: 'http://makersacademy.com')
+    Bookmark.create(url: 'http://destroyallsoftware.com',title: 'http://destroyallsoftware.com')
+    Bookmark.create(url: 'http://google.com',title: 'http://google.com')
 
     visit '/'
       expect(page).to have_content 'http://makersacademy.com' 
