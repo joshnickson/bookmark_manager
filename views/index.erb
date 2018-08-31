@@ -1,13 +1,14 @@
 <ul>
-  <% @bookmarks.each_with_index do |bookmark, index| %>
+  <% @bookmarks.each do |bookmark| %>
     <li>
-      <a href = "<%=@bookmarks[index][0]%>" >
-        <%=@bookmarks[index][1]%> 
-      </a>   
+      <a href="<%= bookmark.url %>">
+        <%= bookmark.title %>
+      </a>
     </li>
   <% end %>
-  <a href='/bookmarks/new'><button>Add</button></a>
 </ul>
+
+<a href='/bookmarks/new'><button>Add</button></a>
 
 <%= flash[:notice] %>
 
